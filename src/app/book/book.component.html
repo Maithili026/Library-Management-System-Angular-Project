@@ -1,0 +1,72 @@
+<!-- book.component.html -->
+<div class="container-fluid mt-4" style="background-image: url('assets/liblack.jpg');height:500px;margin-top:-20px">
+    <br>
+  <h2 class="text-white text-center">Book Management</h2>
+  
+    <button class="btn btn-primary mb-3" (click)="toggleForm()">Add Book</button>
+  
+    <!-- Toggleable form -->
+    <div>
+    <form class="text-white"    [formGroup]="bookForm" (ngSubmit)="createOrUpdateBook()" *ngIf="showForm">
+      <input type="hidden" formControlName="id">
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Title:</label>
+          <input type="text" class="form-control" formControlName="title">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Author:</label>
+          <input type="text" class="form-control" formControlName="author">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>ISBN:</label>
+          <input type="text" class="form-control" formControlName="isbn">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Quantity:</label>
+          <input type="number" class="form-control" formControlName="quantity">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Availability:</label>
+          <input type="number" class="form-control" formControlName="availability">
+        </div>
+      </div>
+  <br>
+      <button type="submit" class="btn btn-success">Save</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+    </form>
+  </div>
+    <!-- Book table -->
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Quantity</th>
+          <th>Availability</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{ book.id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.isbn }}</td>
+          <td>{{ book.quantity }}</td>
+          <td>{{ book.availability }}</td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm" (click)="getBookById(book.id)">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

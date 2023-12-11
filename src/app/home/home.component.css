@@ -1,0 +1,38 @@
+
+  .card {
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+  }
+
+  .container-fluid {
+    position: relative;
+    background-size: cover;
+    height: 500px; 
+    margin-top: 8px;
+    /* Set the height of your container */
+}
+
+
+
+/* Additional styling for the content inside the container */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content appears above the transparent layer */
+    color: white;
+    text-align: center;
+}
+
+
+  
